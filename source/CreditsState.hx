@@ -100,7 +100,13 @@ class CreditsState extends MusicBeatState
 			['ninjamuffin99',		'ninjamuffin99',	"Programmer of Friday Night Funkin'",						'https://twitter.com/ninja_muffin99',	'F73838'],
 			['PhantomArcade',		'phantomarcade',	"Animator of Friday Night Funkin'",							'https://twitter.com/PhantomArcade3K',	'FFBB1B'],
 			['evilsk8r',			'evilsk8r',			"Artist of Friday Night Funkin'",							'https://twitter.com/evilsk8r',			'53E52C'],
-			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",							'https://twitter.com/kawaisprite',		'6475F3']
+			['kawaisprite',			'kawaisprite',		"Composer of Friday Night Funkin'",							'https://twitter.com/kawaisprite',		'6475F3'],
+			["VS IDHAU Team"],
+			['IDHAU',				'idhau',			"Director, Animator, Musician, Charter'",					'https://www.youtube.com/channel/UCjIlzx0u6EoH6L2Siwo8-3g',	'F73838'],
+			['ragdoll998',			'face',				"Main Musician'",											'https://www.youtube.com/channel/UCsGgVvJ7QmmoietnaFUvJiw',	'FFBB1B'],
+			['Ari_Tree',			'ari',				"Main Artist'",												'https://www.youtube.com/channel/UC75p02hO9Excxfc8Y-GlkBQ',	'53E52C'],
+			['Alis',				'alis',				"Background Artist'",										'https://www.youtube.com/channel/UC7IZlvXQ75q08fePAgCcQdg',	'6475F3'],
+			['Yurii',				'yurii',			"Charter'",													'https://www.youtube.com/c/ItssYurii',						'6475F3']
 		];
 		
 		for(i in pisspoop){

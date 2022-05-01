@@ -12,6 +12,7 @@ import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.transition.FlxTransitionSprite.GraphicTransTileDiamond;
 import flixel.addons.transition.FlxTransitionableState;
 import flixel.addons.transition.TransitionData;
+import flixel.addons.display.FlxBackdrop;
 import haxe.Json;
 import openfl.display.Bitmap;
 import openfl.display.BitmapData;
@@ -57,6 +58,8 @@ class TitleState extends MusicBeatState
 
 	public static var initialized:Bool = false;
 
+	var newLogo:FlxSprite;
+
 	var blackScreen:FlxSprite;
 	var credGroup:FlxGroup;
 	var credTextShit:Alphabet;
@@ -64,6 +67,9 @@ class TitleState extends MusicBeatState
 	var ngSpr:FlxSprite;
 
 	var curWacky:Array<String> = [];
+
+	var bgScroll:FlxBackdrop;
+	var bg:FlxSprite;
 
 	var wackyImage:FlxSprite;
 
@@ -251,7 +257,7 @@ class TitleState extends MusicBeatState
 			}
 		}
 
-		Conductor.changeBPM(titleJSON.bpm);
+		Conductor.changeBPM(86);
 		persistentUpdate = true;
 
 		var bg:FlxSprite = new FlxSprite();
@@ -274,12 +280,13 @@ class TitleState extends MusicBeatState
 		logoBl.animation.addByPrefix('bump', 'logo bumpin', 24, false);
 		logoBl.animation.play('bump');
 		logoBl.updateHitbox();
-		// logoBl.screenCenter();
+		logoBl.visible = true;
+		logoBl.screenCenter();
 		// logoBl.color = FlxColor.BLACK;
 
 		swagShader = new ColorSwap();
 		gfDance = new FlxSprite(titleJSON.gfx, titleJSON.gfy);
-
+		gfDance.visible = false;
 		var easterEgg:String = FlxG.save.data.psychDevsEasterEgg;
 		switch(easterEgg.toUpperCase())
 		{
@@ -311,7 +318,13 @@ class TitleState extends MusicBeatState
 				gfDance.animation.addByIndices('danceRight', 'gfDance', [15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29], "", 24, false);
 		}
 		gfDance.antialiasing = ClientPrefs.globalAntialiasing;
-		
+
+		bg = new FlxSprite().loadGraphic(Paths.image('titleMenu/TitleBG'));
+		bg.setGraphicSize(Std.int(bg.width * 1.1));
+		bg.screenCenter();
+		bg.antialiasing = ClientPrefs.globalAntialiasing;
+
+		add(bg);
 		add(gfDance);
 		gfDance.shader = swagShader.shader;
 		add(logoBl);
@@ -558,6 +571,8 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
+		FlxTween.tween(FlxG.camera, {zoom:1.03}, 0.3, {ease: FlxEase.quadOut, type: BACKWARD});
+
 		if(logoBl != null) 
 			logoBl.animation.play('bump', true);
 
@@ -669,7 +684,7 @@ class TitleState extends MusicBeatState
 						skippedIntro = true;
 						playJingle = false;
 						
-						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+						FlxG.sound.playMusic(Paths.music('usernameMenu'), 0);
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						return;
 				}
@@ -691,7 +706,7 @@ class TitleState extends MusicBeatState
 					remove(credGroup);
 					FlxG.camera.flash(FlxColor.WHITE, 3);
 					sound.onComplete = function() {
-						FlxG.sound.playMusic(Paths.music('freakyMenu'), 0);
+						FlxG.sound.playMusic(Paths.music('usernameMenu'), 0);
 						FlxG.sound.music.fadeIn(4, 0, 0.7);
 						transitioning = false;
 					};

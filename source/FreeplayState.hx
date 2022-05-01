@@ -90,8 +90,6 @@ class FreeplayState extends MusicBeatState
 		}
 		WeekData.loadTheFirstEnabledMod();
 
-		/*		//KIND OF BROKEN NOW AND ALSO PRETTY USELESS//
-
 		var initSonglist = CoolUtil.coolTextFile(Paths.txt('freeplaySonglist'));
 		for (i in 0...initSonglist.length)
 		{
@@ -99,7 +97,7 @@ class FreeplayState extends MusicBeatState
 				var songArray:Array<String> = initSonglist[i].split(":");
 				addSong(songArray[0], 0, songArray[1], Std.parseInt(songArray[2]));
 			}
-		}*/
+		}
 
 		bg = new FlxSprite().loadGraphic(Paths.image('menuDesat'));
 		bg.antialiasing = ClientPrefs.globalAntialiasing;
@@ -112,7 +110,7 @@ class FreeplayState extends MusicBeatState
 		for (i in 0...songs.length)
 		{
 			var songText:Alphabet = new Alphabet(0, (70 * i) + 30, songs[i].songName, true, false);
-			songText.isMenuItem = true;
+			songText.isMenuItemCenet = true;
 			songText.targetY = i;
 			grpSongs.add(songText);
 
