@@ -1,22 +1,49 @@
 {
-	"songs": [
-		["Spookeez", "spooky", [34, 51, 68]],
-		["South", "spooky", [34, 51, 68]],
-		["Monster", "monster", [34, 51, 68]]
+	"storyName": "CopyandPasted",
+	"difficulties": "Normal",
+	"hideFreeplay": false,
+	"weekBackground": "pasted",
+	"freeplayColor": [
+		146,
+		113,
+		253
 	],
-
-	"weekCharacters": [
-		"spooky",
-		"bf",
-		"gf"
-	],
-	"weekBackground": "halloween",
-
-	"storyName": "Spooky Month",
-	"weekBefore": "week1",
-	"weekName": "Week 2",
+	"weekBefore": "tutorial",
 	"startUnlocked": true,
-
 	"hideStoryMode": false,
-	"hideFreeplay": false
+	"weekCharacters": [
+		"",
+		"",
+		""
+	],
+	"songs": [
+		[
+			"Locked",
+			"pasted",
+			[
+				140,
+				0,
+				255
+			]
+		],
+		[
+			"F4",
+			"pasted",
+			[
+				140,
+				0,
+				255
+			]
+		],
+		[
+			"CTRL",
+			"pasted",
+			[
+				140,
+				0,
+				255
+			]
+		]
+	],
+	"weekName": "Copypasted Week"
 }
